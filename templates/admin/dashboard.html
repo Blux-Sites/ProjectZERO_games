@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+{% block title %}Admin dashboard{% endblock %}
+{% block content %}
+<h1>Admin dashboard</h1>
+<div class="stats">
+  <div class="card stat"><b>{{ stats.new_orders }}</b>New orders</div>
+  <div class="card stat"><b>{{ stats.orders }}</b>Total orders</div>
+  <div class="card stat"><b>${{ "%.2f"|format(stats.revenue) }}</b>Revenue</div>
+  <div class="card stat"><b>{{ stats.products }}</b>Games</div>
+  <div class="card stat"><b>{{ stats.out_of_stock }}</b>Out of stock</div>
+  <div class="card stat"><b>{{ stats.users }}</b>Customers</div>
+</div>
+<p>
+  <a class="btn" href="{{ url_for('admin.product_new') }}">Add a new game</a>
+  <a class="btn secondary" href="{{ url_for('admin.products') }}">Manage games</a>
+  <a class="btn secondary" href="{{ url_for('admin.orders') }}">All orders</a>
+</p>
+<h2>Latest orders</h2>
+{% if orders %}
+<table>
+  <tr><th>Order</th><th>Customer</th><th>Date</th><th>Total</th><th>Status</th></tr>
+  {% for o in orders %}
+  <tr>
+    <td><a href="{{ url_for('admin.order_detail', order_id=o.id) }}">#{{ o.id }}</a></td>
+    <td>{{ o.full_name }}</td>
+    <td>{{ o.created_at.strftime('%Y-%m-%d %H:%M') }}</td>
+    <td>${{ "%.2f"|format(o.total) }}</td>
+    <td><span class="badge">{{ o.status }}</span></td>
+  </tr>
+  {% endfor %}
+</table>
+{% else %}
+<div class="card">No orders yet.</div>
+{% endif %}
+{% endblock %}

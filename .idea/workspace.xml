@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="232cf299-0273-4c84-85d4-3b4cc93c9816" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/ProjectZERO.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/profiles_settings.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/database.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/base.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/cart.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/home.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/login.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/product.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/products.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/register.html" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Python Script" />
+        <option value="HTML File" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="McpProjectServerCommands">
+    <commands />
+    <urls />
+  </component>
+  <component name="NextEditCompletionFeaturesState">
+    <decayedCancelled>
+      <entry key="MS100" value="1.0000000016901043" />
+      <entry key="MS500" value="1.0403389941825711" />
+      <entry key="S2" value="2.2029633890645886" />
+      <entry key="S5" value="3.7213020812111863" />
+      <entry key="S10" value="4.973958809680656" />
+      <entry key="S30" value="13.011191073763431" />
+      <entry key="S60" value="22.806489287162726" />
+      <entry key="M2" value="32.42689709621146" />
+      <entry key="M5" value="45.15411909684359" />
+      <entry key="M10" value="54.040304662486896" />
+      <entry key="M15" value="58.147478489148284" />
+      <entry key="M30" value="63.06740497234571" />
+      <entry key="H1" value="65.8927836158979" />
+      <entry key="H2" value="67.40918827787075" />
+      <entry key="H4" value="68.19503417297577" />
+      <entry key="D1" value="68.86448866551008" />
+      <entry key="W1" value="68.98060786910433" />
+    </decayedCancelled>
+    <decayedSelected>
+      <entry key="MS100" value="0.0" />
+      <entry key="MS500" value="0.0" />
+      <entry key="S2" value="4.1021722319335247E-85" />
+      <entry key="S5" value="1.758755854860114E-34" />
+      <entry key="S10" value="1.3261809284030993E-17" />
+      <entry key="S30" value="2.3670145417988555E-6" />
+      <entry key="S60" value="0.0015385104945364685" />
+      <entry key="M2" value="0.039223851092625654" />
+      <entry key="M5" value="0.27379158289813743" />
+      <entry key="M10" value="0.5232509750570344" />
+      <entry key="M15" value="0.6493418054470578" />
+      <entry key="M30" value="0.8058174765088287" />
+      <entry key="H1" value="0.8976733684970429" />
+      <entry key="H2" value="0.947456262049622" />
+      <entry key="H4" value="0.9733736497612949" />
+      <entry key="D1" value="0.9955122249161376" />
+      <entry key="W1" value="0.9993576527681793" />
+    </decayedSelected>
+    <decayedShown>
+      <entry key="MS100" value="0.7845840983826268" />
+      <entry key="MS500" value="0.9769883955289238" />
+      <entry key="S2" value="1.955263338794901" />
+      <entry key="S5" value="3.478370633257441" />
+      <entry key="S10" value="4.804632435382286" />
+      <entry key="S30" value="12.927188604370375" />
+      <entry key="S60" value="22.756308848075662" />
+      <entry key="M2" value="32.43468780616444" />
+      <entry key="M5" value="45.409219476222106" />
+      <entry key="M10" value="54.55126566245324" />
+      <entry key="M15" value="58.787646619822674" />
+      <entry key="M30" value="63.86802913843169" />
+      <entry key="H1" value="66.78768253400348" />
+      <entry key="H2" value="68.35520914919206" />
+      <entry key="H4" value="69.16767759060907" />
+      <entry key="D1" value="69.85987740029776" />
+      <entry key="W1" value="69.97994783613842" />
+    </decayedShown>
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 7,
+  &quot;fromUser&quot;: false
+}</component>
+  <component name="ProjectId" id="3KNDuMpi3rQjm7ye6lAdoPR7UbF" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+    <option name="showScratchesAndConsoles" value="false" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ASKED_SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "DefaultHtmlFileTemplate": "HTML File",
+    "ModuleVcsDetector.initialDetectionPerformed": "true",
+    "Python.main.executor": "Run",
+    "RunOnceActivity.MCP Project settings loaded": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "RunOnceActivity.typescript.service.memoryLimit.init": "true",
+    "codeWithMe.voiceChat.enabledByDefault": "false",
+    "com.intellij.ml.llm.matterhorn.ej.ui.settings.DefaultModelSelectionForGA.v1": "true",
+    "git-widget-placeholder": "master",
+    "junie.onboarding.icon.badge.shown": "true",
+    "last_opened_file_path": "C:/Users/iBix/ProjectZERO",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.jshint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.jshint": "",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "python.packages.toolwindow.project.migrated.to.right.top.v2": "true",
+    "settings.editor.selected.configurable": "com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable",
+    "to.speed.mode.migration.done": "true"
+  }
+}]]></component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\iBix\ProjectZERO" />
+      <recent name="C:\Users\iBix\ProjectZERO\templates" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\iBix\ProjectZERO\templates" />
+    </key>
+  </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-python-sdk-eff1e8def5f5-5bd6d13a2a75-com.jetbrains.pycharm.pro.sharedIndexes.bundled-PY-262.10315.174" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="232cf299-0273-4c84-85d4-3b4cc93c9816" name="Changes" comment="" />
+      <created>1791389356978</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1791389356978</updated>
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+</project>

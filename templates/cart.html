@@ -1,0 +1,62 @@
+{% extends "base.html" %}
+{% import "_cover.html" as cover_macro %}
+{% block title %}Your Cart{% endblock %}
+{% block content %}
+<h1>Your Shopping Cart</h1>
+
+{% if lines %}
+<table>
+  <thead>
+    <tr>
+      <th>Game</th>
+      <th>Price</th>
+      <th>Quantity</th>
+      <th>Subtotal</th>
+      <th class="right">Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for line in lines %}
+    <tr>
+      <td>
+        <div style="display: flex; align-items: center; gap: 12px;">
+          {{ cover_macro.cover(line.product, size='thumb') }}
+          <div>
+            <a href="{{ url_for('product_detail', product_id=line.product.id) }}"><strong>{{ line.product.name }}</strong></a>
+            <div class="muted">{{ line.product.platform }}</div>
+          </div>
+        </div>
+      </td>
+      <td>${{ "%.2f"|format(line.product.price) }}</td>
+      <td>
+        <form method="post" action="{{ url_for('cart_update', product_id=line.product.id) }}">
+          <input class="qty" type="number" name="quantity" value="{{ line.quantity }}" min="1" max="{{ line.product.stock }}">
+          <button class="btn small secondary" type="submit">Update</button>
+        </form>
+      </td>
+      <td><strong>${{ "%.2f"|format(line.subtotal) }}</strong></td>
+      <td class="right">
+        <form method="post" action="{{ url_for('cart_remove', product_id=line.product.id) }}">
+          <button class="btn small danger" type="submit">Remove</button>
+        </form>
+      </td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+
+<div style="display: flex; justify-content: space-between; align-items: center; margin-top: 24px; flex-wrap: wrap; gap: 16px;">
+  <div class="price" style="font-size: 1.4rem;">Total: ${{ "%.2f"|format(total) }}</div>
+  <div>
+    <a class="btn secondary" href="{{ url_for('products') }}">Continue Shopping</a>
+    <a class="btn" href="{{ url_for('checkout') }}">Proceed to Checkout</a>
+  </div>
+</div>
+
+{% else %}
+<div class="card" style="text-align: center; padding: 32px;">
+  <p class="muted">Your cart is currently empty.</p>
+  <a class="btn" href="{{ url_for('products') }}">Browse Games</a>
+</div>
+{% endif %}
+{% endblock %}

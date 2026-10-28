@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+{% block title %}Order #{{ order.id }}{% endblock %}
+{% block content %}
+<p><a class="btn small secondary" href="{{ url_for('orders') }}">&larr; Back to my orders</a></p>
+
+<h1>Order #{{ order.id }}</h1>
+<div class="card" style="margin-bottom: 20px;">
+  <p><strong>Placed on:</strong> {{ order.created_at.strftime('%Y-%m-%d %H:%M') }}</p>
+  <p><strong>Status:</strong> <span class="badge">{{ order.status }}</span></p>
+  <p><strong>Delivery to:</strong> {{ order.full_name }}, {{ order.address }}</p>
+</div>
+
+<h2>Items</h2>
+<table>
+  <thead>
+    <tr>
+      <th>Game</th>
+      <th>Price</th>
+      <th>Quantity</th>
+      <th class="right">Subtotal</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for item in order.items %}
+    <tr>
+      <td><strong>{{ item.name }}</strong></td>
+      <td>${{ "%.2f"|format(item.price) }}</td>
+      <td>{{ item.quantity }}</td>
+      <td class="right"><strong>${{ "%.2f"|format(item.subtotal) }}</strong></td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+
+<div class="price" style="text-align: right; margin-top: 16px; font-size: 1.3rem;">
+  Total: ${{ "%.2f"|format(order.total) }}
+</div>
+{% endblock %}

@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+{% import "_cover.html" as cover_macro %}
+{% block title %}{{ product.name }}{% endblock %}
+{% block content %}
+<div style="display: flex; gap: 32px; flex-wrap: wrap;">
+  <div>
+    {{ cover_macro.cover(product, size='big') }}
+  </div>
+  <div style="flex: 1; min-width: 280px;">
+    <h1>{{ product.name }}</h1>
+    <p class="muted">Genre: <a href="{{ url_for('products', genre=product.genre) }}">{{ product.genre }}</a> | Platform: {{ product.platform }}</p>
+    <div class="price" style="font-size: 1.6rem; margin: 16px 0;">${{ "%.2f"|format(product.price) }}</div>
+    
+    <p>{{ product.description }}</p>
+
+    <p>
+      {% if product.stock > 0 %}
+        <span class="badge ok">In Stock ({{ product.stock }} available)</span>
+      {% else %}
+        <span class="badge bad">Out of Stock</span>
+      {% endif %}
+    </p>
+
+    {% if product.stock > 0 %}
+    <form method="post" action="{{ url_for('cart_add', product_id=product.id) }}" style="margin-top: 20px;">
+      <label>Quantity: <input class="qty" type="number" name="quantity" value="1" min="1" max="{{ product.stock }}"></label>
+      <button type="submit">Add to Cart</button>
+    </form>
+    {% endif %}
+  </div>
+</div>
+{% endblock %}

@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+{% block title %}My orders{% endblock %}
+{% block content %}
+<h1>My orders</h1>
+
+{% if orders %}
+<table>
+  <thead>
+    <tr>
+      <th>Order</th>
+      <th>Date</th>
+      <th>Items</th>
+      <th>Total</th>
+      <th>Status</th>
+      <th class="right">Action</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for o in orders %}
+    <tr>
+      <td><a href="{{ url_for('order_detail', order_id=o.id) }}">#{{ o.id }}</a></td>
+      <td>{{ o.created_at.strftime('%Y-%m-%d %H:%M') }}</td>
+      <td>{{ o.items|length }}</td>
+      <td><strong>${{ "%.2f"|format(o.total) }}</strong></td>
+      <td><span class="badge">{{ o.status }}</span></td>
+      <td class="right">
+        <a class="btn small secondary" href="{{ url_for('order_detail', order_id=o.id) }}">View</a>
+      </td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+{% else %}
+<div class="card" style="text-align: center; padding: 32px;">
+  <p class="muted">You have not placed any orders yet.</p>
+  <a class="btn" href="{{ url_for('products') }}">Browse Games</a>
+</div>
+{% endif %}
+{% endblock %}

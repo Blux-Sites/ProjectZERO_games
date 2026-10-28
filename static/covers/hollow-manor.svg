@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 450" width="600" height="450">
+<defs><linearGradient id="g" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#0a0f14"/><stop offset="1" stop-color="#3f3f5a"/></linearGradient></defs>
+<rect width="600" height="450" fill="url(#g)"/>
+<circle cx="480" cy="110" r="150" fill="#b8c6d9" opacity="0.18"/>
+<circle cx="540" cy="60" r="70" fill="#b8c6d9" opacity="0.25"/>
+<circle cx="90" cy="420" r="120" fill="#b8c6d9" opacity="0.12"/>
+<rect x="40" y="60" width="68" height="34" rx="17" fill="#dbe3ee" opacity="0.9"/>
+<text x="74" y="84" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="700" fill="#0a0f14">PC</text>
+<text x="40" y="250" font-family="Arial, Helvetica, sans-serif" font-size="52" font-weight="800" fill="#ffffff">Hollow</text><text x="40" y="306" font-family="Arial, Helvetica, sans-serif" font-size="52" font-weight="800" fill="#ffffff">Manor</text>
+</svg>

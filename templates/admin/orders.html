@@ -1,0 +1,45 @@
+{% extends "base.html" %}
+{% block title %}Manage Orders{% endblock %}
+{% block content %}
+<h1>Manage Orders</h1>
+
+<div class="filters" style="margin-top: 16px;">
+  <a href="{{ url_for('admin.orders') }}" class="{% if not active_status %}active{% endif %}">All Statuses</a>
+  {% for st in statuses %}
+    <a href="{{ url_for('admin.orders', status=st) }}" class="{% if active_status == st %}active{% endif %}">{{ st }}</a>
+  {% endfor %}
+</div>
+
+{% if orders %}
+<table style="margin-top: 16px;">
+  <thead>
+    <tr>
+      <th>Order</th>
+      <th>Customer</th>
+      <th>Address</th>
+      <th>Date</th>
+      <th>Total</th>
+      <th>Status</th>
+      <th class="right">Action</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for o in orders %}
+    <tr>
+      <td><a href="{{ url_for('admin.order_detail', order_id=o.id) }}">#{{ o.id }}</a></td>
+      <td>{{ o.full_name }}</td>
+      <td class="muted">{{ o.address }}</td>
+      <td>{{ o.created_at.strftime('%Y-%m-%d %H:%M') }}</td>
+      <td><strong>${{ "%.2f"|format(o.total) }}</strong></td>
+      <td><span class="badge">{{ o.status }}</span></td>
+      <td class="right">
+        <a class="btn small secondary" href="{{ url_for('admin.order_detail', order_id=o.id) }}">View</a>
+      </td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+{% else %}
+<div class="card" style="margin-top: 16px;">No orders found.</div>
+{% endif %}
+{% endblock %}

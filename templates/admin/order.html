@@ -1,0 +1,50 @@
+{% extends "base.html" %}
+{% block title %}Order #{{ order.id }}{% endblock %}
+{% block content %}
+<p><a class="btn small secondary" href="{{ url_for('admin.orders') }}">&larr; Back to orders</a></p>
+
+<h1>Order #{{ order.id }}</h1>
+<div class="card" style="margin-bottom: 20px;">
+  <p><strong>Customer Name:</strong> {{ order.full_name }}</p>
+  <p><strong>Account Email:</strong> {{ order.user.email if order.user else 'N/A' }}</p>
+  <p><strong>Delivery Address:</strong> {{ order.address }}</p>
+  <p><strong>Date:</strong> {{ order.created_at.strftime('%Y-%m-%d %H:%M') }}</p>
+  <p><strong>Current Status:</strong> <span class="badge">{{ order.status }}</span></p>
+
+  <form method="post" action="{{ url_for('admin.order_status', order_id=order.id) }}" style="display: flex; gap: 10px; align-items: center; margin-top: 14px;">
+    <label style="margin: 0; font-weight: 600;">Update Status:</label>
+    <select name="status" style="width: auto; max-width: 200px;">
+      {% for st in statuses %}
+        <option value="{{ st }}" {% if order.status == st %}selected{% endif %}>{{ st }}</option>
+      {% endfor %}
+    </select>
+    <button class="btn small" type="submit" style="margin-top: 0;">Save Status</button>
+  </form>
+</div>
+
+<h2>Order Items</h2>
+<table>
+  <thead>
+    <tr>
+      <th>Game</th>
+      <th>Price</th>
+      <th>Quantity</th>
+      <th class="right">Subtotal</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for item in order.items %}
+    <tr>
+      <td><strong>{{ item.name }}</strong></td>
+      <td>${{ "%.2f"|format(item.price) }}</td>
+      <td>{{ item.quantity }}</td>
+      <td class="right"><strong>${{ "%.2f"|format(item.subtotal) }}</strong></td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+
+<div style="text-align: right; margin-top: 16px; font-size: 1.3rem;" class="price">
+  Total: ${{ "%.2f"|format(order.total) }}
+</div>
+{% endblock %}

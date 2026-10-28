@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+{% block title %}{{ heading }}{% endblock %}
+{% block content %}
+<h1>{{ heading }}</h1>
+<form method="post" enctype="multipart/form-data">
+  <label>Name <input name="name" value="{{ values.name }}" required maxlength="100"></label>
+  <label>Description <textarea name="description">{{ values.description }}</textarea></label>
+  <label>Genre <input name="genre" value="{{ values.genre }}" list="genre-list" maxlength="40"></label>
+  <datalist id="genre-list">{% for g in genres %}<option value="{{ g }}">{% endfor %}</datalist>
+  <label>Platform <input name="platform" value="{{ values.platform }}" list="platform-list" maxlength="40"></label>
+  <datalist id="platform-list">{% for p in platforms %}<option value="{{ p }}">{% endfor %}</datalist>
+  <label>Price ($) <input name="price" type="number" step="0.01" min="0" value="{{ values.price }}" required></label>
+  <label>Stock <input name="stock" type="number" step="1" min="0" value="{{ values.stock }}" required></label>
+  <label>Cover image (PNG, JPG, WEBP or GIF, max 5 MB)
+    <input name="image" type="file" accept="image/png,image/jpeg,image/webp,image/gif">
+  </label>
+  {% if current_image %}
+  <p class="muted">Current image:</p>
+  <img class="cover big" src="{{ url_for('static', filename=current_image) }}" alt="Current cover" style="max-width:260px;">
+  <label style="font-weight:400;"><input type="checkbox" name="remove_image" value="1" style="width:auto;"> Remove the current image</label>
+  {% endif %}
+  <button type="submit">Save</button>
+  <a class="btn secondary" href="{{ url_for('admin.products') }}">Cancel</a>
+</form>
+{% endblock %}

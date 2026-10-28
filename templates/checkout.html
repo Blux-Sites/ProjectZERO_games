@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+{% import "_cover.html" as cover_macro %}
+{% block title %}Checkout{% endblock %}
+{% block content %}
+<h1>Checkout</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Game</th>
+      <th>Price</th>
+      <th>Quantity</th>
+      <th class="right">Subtotal</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for line in lines %}
+    <tr>
+      <td>
+        <div style="display: flex; align-items: center; gap: 12px;">
+          {{ cover_macro.cover(line.product, size='thumb') }}
+          <strong>{{ line.product.name }}</strong>
+        </div>
+      </td>
+      <td>${{ "%.2f"|format(line.product.price) }}</td>
+      <td>{{ line.quantity }}</td>
+      <td class="right"><strong>${{ "%.2f"|format(line.subtotal) }}</strong></td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+
+<div class="price" style="font-size: 1.4rem; margin-top: 16px;">Total: ${{ "%.2f"|format(total) }}</div>
+
+<h2>Delivery details</h2>
+<form method="post" action="{{ url_for('checkout') }}">
+  <label>Full name <input name="full_name" value="{{ full_name }}" required maxlength="100"></label>
+  <label>Delivery address <textarea name="address" required maxlength="255">{{ address }}</textarea></label>
+  <button type="submit">Place order</button>
+  <a class="btn secondary" href="{{ url_for('cart') }}">Back to cart</a>
+</form>
+{% endblock %}

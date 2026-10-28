@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+{% import "_cover.html" as cover_macro %}
+{% block title %}All Games{% endblock %}
+{% block content %}
+<h1>All Games</h1>
+
+
+<div class="filters">
+  <a href="{{ url_for('products') }}" class="{% if not active_genre %}active{% endif %}">All Genres</a>
+  {% for g in genres %}
+    <a href="{{ url_for('products', genre=g) }}" class="{% if active_genre == g %}active{% endif %}">{{ g }}</a>
+  {% endfor %}
+</div>
+
+<div class="grid" style="margin-top: 16px;">
+  {% for p in products %}
+    <div class="card">
+      <a href="{{ url_for('product_detail', product_id=p.id) }}">
+        {{ cover_macro.cover(p, size='card') }}
+        <h3>{{ p.name }}</h3>
+      </a>
+      <div class="muted">{{ p.genre }} • {{ p.platform }}</div>
+      <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 12px;">
+        <span class="price">${{ "%.2f"|format(p.price) }}</span>
+        <a class="btn small" href="{{ url_for('product_detail', product_id=p.id) }}">View</a>
+      </div>
+    </div>
+  {% else %}
+    <div class="card">No games found in this category.</div>
+  {% endfor %}
+</div>
+{% endblock %}

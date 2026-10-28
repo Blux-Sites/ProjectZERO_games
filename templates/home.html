@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+{% import "_cover.html" as cover_macro %}
+{% block title %}Home{% endblock %}
+{% block content %}
+<div class="hero">
+  <h1>Level Up Your Library</h1>
+  <p>Discover the best indie hits, immersive RPGs, and fast-paced action games.</p>
+  <a class="btn" href="{{ url_for('products') }}">Browse All Games</a>
+</div>
+
+<h2>Featured Games</h2>
+<div class="grid">
+  {% for p in products %}
+    <div class="card">
+      <a href="{{ url_for('product_detail', product_id=p.id) }}">
+        {{ cover_macro.cover(p, size='card') }}
+        <h3>{{ p.name }}</h3>
+      </a>
+      <div class="muted">{{ p.genre }} • {{ p.platform }}</div>
+      <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 12px;">
+        <span class="price">${{ "%.2f"|format(p.price) }}</span>
+        <a class="btn small" href="{{ url_for('product_detail', product_id=p.id) }}">View</a>
+      </div>
+    </div>
+  {% else %}
+    <div class="card">Games coming soon.</div>
+  {% endfor %}
+</div>
+{% endblock %}

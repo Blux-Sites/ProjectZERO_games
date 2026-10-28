@@ -1,0 +1,49 @@
+{% extends "base.html" %}
+{% import "_cover.html" as cover_macro %}
+{% block title %}Manage Games{% endblock %}
+{% block content %}
+<div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px;">
+  <h1>Manage Games</h1>
+  <a class="btn" href="{{ url_for('admin.product_new') }}">Add a new game</a>
+</div>
+
+{% if products %}
+<table style="margin-top: 16px;">
+  <thead>
+    <tr>
+      <th>Cover</th>
+      <th>Name</th>
+      <th>Genre / Platform</th>
+      <th>Price</th>
+      <th>Stock</th>
+      <th class="right">Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for p in products %}
+    <tr>
+      <td>{{ cover_macro.cover(p, size='thumb') }}</td>
+      <td><a href="{{ url_for('product_detail', product_id=p.id) }}"><strong>{{ p.name }}</strong></a></td>
+      <td>{{ p.genre }} / {{ p.platform }}</td>
+      <td>${{ "%.2f"|format(p.price) }}</td>
+      <td>
+        {% if p.stock > 0 %}
+          <span class="badge ok">{{ p.stock }}</span>
+        {% else %}
+          <span class="badge bad">Out of stock</span>
+        {% endif %}
+      </td>
+      <td class="right">
+        <a class="btn small secondary" href="{{ url_for('admin.product_edit', product_id=p.id) }}">Edit</a>
+        <form method="post" action="{{ url_for('admin.product_delete', product_id=p.id) }}" onsubmit="return confirm('Delete this game?');">
+          <button class="btn small danger" type="submit">Delete</button>
+        </form>
+      </td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+{% else %}
+<div class="card" style="margin-top: 16px;">No games found.</div>
+{% endif %}
+{% endblock %}

@@ -1,0 +1,3 @@
+{% macro cover(p, size='card') %}
+{% if p.image %}<img class="cover {{ size }}" src="{{ url_for('static', filename=p.image) }}" alt="{{ p.name }}" loading="lazy">{% else %}<div class="cover {{ size }} placeholder">{{ p.name[:1] }}</div>{% endif %}
+{% endmacro %}
